@@ -1,0 +1,12 @@
+{
+    "name": "xkcd Night Shift",
+    "description": "Reduce the intensity of opinions online!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["main.js"]
+        }
+    ]
+}
