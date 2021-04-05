@@ -11,5 +11,6 @@
         "all_frames": true,
         "run_at": "document_start"
     }],
-    "permissions": ["storage", "tabs"]
+    "permissions": ["storage", "tabs"],
+    "icons": {"128": "icon.png"}
 }
