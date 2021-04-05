@@ -3,12 +3,13 @@
     "description": "Reduce the intensity of opinions online!",
     "version": "1.0",
     "manifest_version": 3,
-    "content_scripts": [
-        {
-            "matches": ["*://*/*"],
-            "js": ["mutation-summary.js", "main.js"],
-            "all_frames": true,
-            "run_at": "document_start"
-        }
-    ]
+    "background": {"service_worker": "background.js"},
+    "action": {},
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": ["mutation-summary.js", "main.js"],
+        "all_frames": true,
+        "run_at": "document_start"
+    }],
+    "permissions": ["storage", "tabs"]
 }
