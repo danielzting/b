@@ -1,11 +1,17 @@
-var nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT),
-    text,
-    node,
-    find = /the/gi,
-    replace = "THE";
-
-while (nodes.nextNode()) {
-    node = nodes.currentNode;
-    text = node.nodeValue;
-    node.nodeValue = text.replace(find, replace);
+function substitute(node) {
+    if (
+        node.parentNode.tagName !== "SCRIPT"
+        && node.parentNode.tagName !== "STYLE"
+        && !node.parentNode.isContentEditable
+    ) {
+        node.nodeValue = node.nodeValue.replace(/b/gi, "🅱️");
+    }
 }
+
+var observer = new MutationSummary({
+    callback: function(summaries) {
+        summaries[0].added.forEach(substitute);
+        summaries[0].valueChanged.forEach(substitute);
+    },
+    queries: [{ characterData: true }]
+});
