@@ -8,15 +8,18 @@ function substitute(node) {
     }
 }
 
-var url = new URL(location.href).origin;
-chrome.storage.sync.get([url], function(data) {
-    if (!data[url]) {
-        var observer = new MutationSummary({
-            callback: function(summaries) {
+var observer = new MutationSummary({
+    callback: function(summaries) {
+        var url = new URL(location.href).origin;
+        chrome.storage.sync.get([url], function(data) {
+            if (!data[url]) {
                 summaries[0].added.forEach(substitute);
                 summaries[0].valueChanged.forEach(substitute);
-            },
-            queries: [{ characterData: true }]
+                chrome.runtime.sendMessage({badgeText: ""});
+            } else {
+                chrome.runtime.sendMessage({badgeText: "OFF"});
+            }
         });
-    }
+    },
+    queries: [{ characterData: true }]
 });
