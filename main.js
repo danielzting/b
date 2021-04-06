@@ -15,11 +15,10 @@ var observer = new MutationSummary({
             if (!data[url]) {
                 summaries[0].added.forEach(substitute);
                 summaries[0].valueChanged.forEach(substitute);
-                chrome.runtime.sendMessage({badgeText: ""});
-            } else {
-                chrome.runtime.sendMessage({badgeText: "OFF"});
             }
         });
     },
     queries: [{ characterData: true }]
 });
+
+chrome.runtime.sendMessage({});
