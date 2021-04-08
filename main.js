@@ -1,6 +1,7 @@
 function substitute(node) {
     if (
-        node.parentNode.tagName !== 'SCRIPT'
+        node.parentNode !== null
+        && node.parentNode.tagName !== 'SCRIPT'
         && node.parentNode.tagName !== 'STYLE'
         && !node.parentNode.isContentEditable
     ) {

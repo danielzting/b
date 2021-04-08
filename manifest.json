@@ -1,6 +1,6 @@
 {
-    "name": "xkcd Night Shift",
-    "description": "Reduce the intensity of opinions online!",
+    "name": "🅱️",
+    "description": "Replace the letter B with the 🅱️ emoji everywhere.",
     "version": "1.0",
     "manifest_version": 3,
     "background": {"service_worker": "background.js"},
@@ -12,5 +12,5 @@
         "run_at": "document_start"
     }],
     "permissions": ["storage", "tabs"],
-    "icons": {"128": "icon.png"}
+    "icons": {"128": "b.png"}
 }
