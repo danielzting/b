@@ -7,8 +7,7 @@
     "action": {},
     "content_scripts": [{
         "matches": ["*://*/*"],
-        "js": ["mutation-summary.js", "main.js"],
-        "run_at": "document_start"
+        "js": ["mutation-summary.js", "main.js"]
     }],
     "permissions": ["storage", "tabs"],
     "icons": {"128": "./assets/b.png"}
