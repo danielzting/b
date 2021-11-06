@@ -1,7 +1,7 @@
-chrome.action.onClicked.addListener(function(tab) {
+chrome.browserAction.onClicked.addListener(function(tab) {
     var url = new URL(tab.url).origin;
     chrome.storage.sync.get([url], function(data) {
-        if (!data[url]) {
+        if (data === undefined || !data[url]) {
             chrome.storage.sync.set({[url]: true});
         }
         else {

@@ -1,14 +1,23 @@
 {
     "name": "🅱️",
     "description": "Replace the letter B with the 🅱️ emoji everywhere.",
-    "version": "2.0",
-    "manifest_version": 3,
-    "background": {"service_worker": "background.js"},
-    "action": {},
+    "version": "3.0",
+    "author": "Daniel Ting",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
     "content_scripts": [{
         "matches": ["*://*/*"],
-        "js": ["mutation-summary.js", "main.js"]
+        "all_frames": true,
+        "js": ["TextObserver.js", "main.js"],
+        "run_at": "document_end"
     }],
     "permissions": ["storage", "tabs"],
-    "icons": {"128": "./assets/b.png"}
+    "icons": {"128": "./assets/b.png"},
+    "browser_action": {},
+    "browser_specific_settings": {
+        "gecko": {"id": "b@example.com"}
+    }
 }
